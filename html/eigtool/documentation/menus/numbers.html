@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool Numbers Menu</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>Numbers Menu</h1>
+
+The Numbers menu is created dynamically when EigTool is started, using
+files contained in the <tt>num_comp</tt> directory, under the
+<tt>eigtool</tt> directory. For some items, a point may be marked on
+the pseudospectra plot, indicating where this numerical value is
+attained (see <a href="#disp_pts">Display Points</a>). In these cases,
+the point can be removed from the plot by selecting the corresponding
+menu item a second time (a check mark by the item indicates whether
+the point is displayed or not).
+ 
+<P><table border=1>
+<tr><td>Eigenvector Matrix Cond. No.</td>
+<td><a name="ev_cond">Compute the (2-norm) condition number of the
+matrix of eigenvectors.</td></tr>
+
+<tr><td>Departure from Normality</td> <td><a name="dep_norm">This
+option will compute Henrici's <i>departure from normality</i> for the
+current matrix. This is defined to be the Frobenius norm of <tt>N</tt>
+where <tt>N = T-diag(l<sub>i</sub>)</tt>, <tt>T</tt> is the Schur
+factor of the matrix and  <tt>diag(l<sub>i</sub>)</tt> is the diagonal
+of <tt>T</tt>.</td></tr>
+
+<tr><td>Numerical Abscissa</td>
+<td><a name="num_abs">Compute the <i>numerical abscissa</i>, the
+rightmost point in the field of values.</td></tr>
+
+<tr><td>Pseudospectral Abscissa</td>
+<td><a name="psa_abs">Compute (for a particular value of eps) the <i>pseudospectral abscissa</i>, the
+real part of the rightmost point in the eps-pseudospectrum.</td></tr>
+
+<tr><td>Pseudospectral Radius</td>
+<td><a name="psa_rad">Compute (for a particular value of eps) the <i>pseudospectral radius</i>, the
+absolute value of the point with greatest modulus in the eps-pseudospectrum.</td></tr>
+
+<tr><td>Spectral Abscissa</td>
+<td><a name="spec_abs">Compute the <i>spectral abscissa</i>, the
+real part of the rightmost eigenvalue of the matrix.</td></tr>
+
+<tr><td>Spectral Radius</td>
+<td><a name="spec_rad">Compute the <i>spectral radius</i>, the
+absolute value of the eigenvalue with greatest modulus.</td></tr>
+
+<tr><td>Display Points</td> <td><a name="disp_pts">When this option is
+toggled on, the points in the complex plane at which the above numbers
+are attained, if appropriate, are marked on the pseudospectra
+plot. When this item is toggled off, any existing points are removed,
+and no more will be plotted until it is toggled again.</td></tr>
+
+</table>
+
+<p><hr>
+<p>EigTool <a href="../../index.html" target="_top">home page</a>.
+</body>
+</html>

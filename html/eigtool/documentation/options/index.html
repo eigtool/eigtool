@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool Command Line Options</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>EigTool Command Line Options</h1>
+
+The contents of this page is summarised in the <tt>eigtool</tt> help
+text, which can be seen by typing <tt>help eigtool</tt> at the MATLAB
+command prompt.
+
+<p>There are several different combinations of command line arguments
+that can be used with EigTool
+
+<a name="basic">
+<h2>Basic EigTool Operation</h2>
+
+The most basic way to run EigTool is simply to type <tt>eigtool</tt>
+at the MATLAB command prompt. EigTool will then be started, and will
+wait for you to run a Demo from the <a
+href="../menus/demos.html">Demos Menu</a>, or input a <a
+href="../menus/file.html#new">New Matrix</a>.
+
+<p>If you already have a matrix (say <tt>A</tt>) you wish to use
+EigTool for, simply type <tt>eigtool(A)</tt> and the eigenvalues and
+pseudospectra will be computed automatically; depending on the <a
+href="../matrixtypes.html">Matrix Type</a>, you may be asked some
+questions before the computation begins.
+
+<a name="opts">
+<h2>Using OPTIONS to Control the Plot</h2>
+
+EigTool has many options available to control the final plot and the
+computation method used. These are particularly useful when writing
+scripts to call EigTool automatically as part of another
+calculation. To run EigTool with options, type
+<tt>eigtool(A,opts)</tt>, where the options allowed are as follows:
+
+<table border=1>
+<tr><td><b>Option</b></td>
+<td><b>Description</b></td>
+<td><b>Value and {Default}</b></td></tr>
+
+<tr><td><tt>opts.npts</tt></td>
+<td>number of gridpoints to use in the pseudospectra computation (if
+the axes are not square, this is the number used in longer direction;
+the number in the shorter direction will be in proportion to the
+aspect ratio of the axes); see <a href="../panes/index.html#mesh">Mesh</a></td>
+<td>[scalar | {automatic}]</td></tr>
+
+<tr><td><tt>opts.levels</tt></td>
+<td>log10(eps) for desired eps-pseudospectra to plot; see <a
+href="../panes/index.html#levels">Contour Levels</a></td>
+<td>[vector | {automatic}]</td></tr>
+
+<tr><td><tt>opts.ax</tt></td>
+<td>axes on which to compute the pseudospectra/display the
+eigenvalues; see <a
+href="../panes/index.html#axes">Figure Axes</a></td>
+<td>[4-by-1 vector | {automatic}]</td></tr>
+
+<tr><td><tt>opts.proj_lev</tt></td>
+<td>pojection level to use (0..Inf); see the <a
+href="../proj_tutorial">Projection Tutorial</a> and <a
+href="../menus/extras.html#proj">Projection Level</a></td>
+<td>[scalar | {Inf}]</td></tr>
+
+<tr><td><tt>opts.colour</tt> or <br><tt>opts.color</tt></td>
+<td>draw the pseudospectra using colored lines. See <a
+href="../menus/extras.html#cols">Colour</a></td>
+<td>[0 | {1}]</td></tr>
+
+<tr><td><tt>opts.thick_lines</tt></td>
+<td>draw the pseudospectra using thick lines; see <a
+href="../menus/extras.html#line">Thick Lines</a></td>
+<td>[0 | {1}]</td></tr>
+
+<tr><td><tt>opts.scale_equal</tt></td>
+<td>use `axis equal' on axes; see <a
+href="../panes/index.html#axes">Figure Axes</a></td>
+<td>[0 | {1}]</td></tr>
+
+<tr><td><tt>opts.print_plot</tt></td> <td>only create a plot with
+eigenvalues and pseudospectra (no user interface controls); see <a
+href="../menus/file.html#print">Printable Plot</a></td> <td>[{0} |
+1]</td></tr>
+
+<tr><td><tt>opts.no_graphics</tt></td>
+<td>compute singular value data only, i.e., no user interface or
+graphical output</td>
+<td>[{0} | 1]</td></tr>
+
+<tr><td><tt>opts.no_waitbar</tt></td>
+<td>suppress display of waitbar during computations (useful if calling
+EigTool from within a script)</td>
+<td>[{0} | 1]</td></tr>
+
+<tr><td><tt>opts.isreal</tt></td> <td>is A (complex) unitarily similar
+to a real matrix? If so, pseudospectra will be symmetric about the
+real axes, saving as much as a factor of two (depending on the axes)
+in the pseudospectra computation time. Useful if A was obtained from a
+Schur decomposition.</td> <td>[{0} | 1]</td></tr>
+
+<tr><td><tt>opts.ews</tt></td>
+<td>eigenvalues of rectangular or sparse matrices are not computed by
+default in EigTool (unless using ARPACK/eigs); if they are known in
+advance, they can be added to the plot using this option</td>
+<td>[vector | {[]}]</td></tr>
+
+<tr><td><tt>opts.dim</tt></td>
+<td>display the matrix dimension on the plot; see <a
+href="../menus/extras.html#dims">Display Dimension</a></td>
+<td>[0 | {1}]</td></tr>
+
+<tr><td><tt>opts.grid</tt></td>
+<td>display the grid as dots on the plot; see <a
+href="../menus/extras.html#grid">Display Grid</a></td>
+<td>[{0} | 1]</td></tr>
+
+<tr><td><tt>opts.no_ews</tt></td>
+<td>suppress display of the eigenvalues (plot pseudospectra only); see <a
+href="../menus/extras.html#ews">Display Eigenvalues</a></td>
+<td>[{0} | 1]</td></tr>
+
+<tr><td><tt>opts.no_psa</tt></td>
+<td>suppress display of the pseudospectra (plot eigenvalues only); see <a
+href="../menus/extras.html#psa">Display Pseudospectra</a></td>
+<td>[{0} | 1]</td></tr>
+
+<tr><td><tt>opts.fov</tt></td>
+<td>compute and display the field of values; see <a
+href="../buttons/index.html#fov">Field of Vals.</a></td>
+<td>[{0} | 1]</td></tr>
+
+<tr><td><tt>opts.unitary_mtx</tt></td>
+<td>a unitary transformation to apply to eigenmodes and
+ pseudoeigenmodes, useful if the input matrix was gererated from a
+ unitary transformation of the original matrix.</td>
+<td>[matrix | {[]}]</td></tr>
+
+<tr><td><tt>opts.imag_axis</tt></td>
+<td>highlight the imaginary axis in grey? See <a
+href="../menus/extras.html#imaga">Display Imaginary Axis</a></td>
+<td>[{0} | 1]</td></tr>
+
+<tr><td><tt>opts.unit_circle</tt></td>
+<td>highlight the unit circle in grey? See <a
+href="../menus/extras.html#unitc">Display Unit Circle</a></td>
+<td>[{0} | 1]</td></tr>
+
+<tr><td><tt>opts.colourbar</tt></td>
+<td>Display the colourbar showing the epsilon levels plotted? See <a
+href="../menus/extras.html#cbar">Display Colourbar</a></td>
+<td>[{0} | 1]</td></tr>
+
+<tr><td><tt>opts.direct</tt></td>
+<td>Use direct (rather than iterative) method; see <a
+href="../panes/index.html#direct">Direct/Iterative</a></td> 
+<td>[0 | {automatic}]</td></tr>
+
+<tr><td><tt>opts.k</tt></td>
+<td>No. of eigenvalues for <tt>eigs</tt> to search for. The default value is
+set by <tt>eigs</tt>, and is currently 6.</td>
+<td>[1..n | {automatic}]</td></tr>
+
+<tr><td><tt>opts.p</tt></td>
+<td>Maximum subspace size for <tt>eigs</tt>. The default value is
+determined by <tt>eigs</tt>, and is approximately twice the number of
+requested eigenvalues.</td>
+<td>[1..n | {default}]</td></tr>
+
+<tr><td><tt>opts.which</tt></td>
+<td>Which eigenvalues should <tt>eigs</tt> look for?. The default value is
+set by <tt>eigs</tt>, and is currently <tt>'LM'</tt>.</td>
+<td>[string| {default}]</td></tr>
+
+<tr><td><tt>opts.tol</tt></td>
+<td>Tolerance for <tt>eigs</tt> to use. The default value is
+set by <tt>eigs</tt>, and is currently machine epsilon.</td>
+<td>[scalar | {default}]</td></tr>
+
+<tr><td><tt>opts.maxit</tt></td>
+<td>Maximum number of iterations for <tt>eigs</tt>. The default value is
+determined by <tt>eigs</tt>, and is <tt>max(300,2*n/p)</tt>.</td>
+<td>[1..Inf | {default}]</td></tr>
+
+<tr><td><tt>opts.v0</tt></td>
+<td>Starting vector for <tt>eigs</tt>. The default value is
+determined by <tt>eigs</tt>, and is a random vector.</td>
+<td>[vector | {default}]</td></tr>
+
+</table>
+
+<a name="advanced">
+<h2>Advanced Calling Sequences</h2>
+
+There are also a number of more advanced ways of calling EigTool:
+
+<p><tt>eigtool(A,fig)</tt> will start EigTool in the figure number
+<tt>fig</tt>.
+
+<p><tt>eigtool(A,opts,fig)</tt> will start EigTool in the figure number
+<tt>fig</tt> and use the options <tt>opts</tt>.
+
+<p><tt>eigtool(data_file)</tt> will create a <a
+href="../menus/file.html#print">Printable Plot</a> from data saved
+with <a href="../menus/extras.html#quick">Save for Quick Print Creation</a>.
+
+<p><tt>[x,y,sigs] = eigtool(A)</tt> will output the computed
+pseudospectra data as vectors <tt>x</tt> and <tt>y</tt> defining the
+grid, and <tt>sigs</tt> the singular value data.
+
+<p><tt>eigtool(x,y,sigs)</tt> will create a <a
+href="../menus/file.html#print">Printable Plot</a> using the
+pseudospectra data <tt>x</tt>, <tt>y</tt> and <tt>sigs</tt>.
+
+<p><tt>eigtool(x,y,sigs,fig)</tt> as above, but the plot is created in
+figure number <tt>fig</tt>.
+
+<p><tt>eigtool(x,y,sigs,opts)</tt> as above, but <tt>opts</tt>
+contains options data to control the look of the plot. Note that not
+all options are applicable here; for example, the axes are
+determined by <tt>x</tt> and <tt>y</tt>, not <tt>opts.ax</tt>.
+
+<p><tt>eigtool(x,y,sigs,opts,fig)</tt> as above, but the plot is created in
+figure number <tt>fig</tt> using options <tt>opts</tt>.
+
+
+<p><hr>
+<p>EigTool <a href="../../index.html" target="_top">home page</a>.
+</body>
+</html>

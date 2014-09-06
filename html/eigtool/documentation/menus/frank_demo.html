@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool Frank Demo</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>EigTool Frank Demo</h1>
+
+<center><img src="../images/frank_demo.gif" alt="Frank Demo"></center>
+
+<p>The Frank matrix is also in the MATLAB gallery, and can be
+created by the command <P><tt>F = gallery('frank',N)</tt>
+
+<p>This is, a classic example of a matrix whose
+eigenvalues are ill-conditioned and hence difficult to
+compute [1,2]. What it illustrates is that one cannot
+expect to compute eigenvalues better than a set of
+eps-pseudoeigenvalues for some eps on the order of
+machine precision. This is seen at the left of the
+spectrum, where some eigenvalues are complex, even
+though all the eigenvalues can be proved to be real. The
+pseudospectra are shown in [3].
+
+<p>[1]: G. H. Golub and J. H. Wilkinson, "Ill-conditioned
+     eigensystems and the computation of the Jordan
+     canonical form", SIAM Review 18, pp. 578-619, 1976.
+<p>[2]: J. H. Wilkinson, "The Algebraic Eigenvalue Problem",
+     Clarendon Press, Oxford, 1965.
+<p>[3]: L. N. Trefethen, "Psuedospectra of matrices", in
+     "Numerical Analysis 1991" (Dundee 1991), Longman Sci.
+     Tech., Harlow, 1992, 234-266.
+
+
+
+
+<p><hr>
+<p>EigTool <a href="demos.html" target="BODY">EigTool Demos Menu</a>.
+</body>
+</html>

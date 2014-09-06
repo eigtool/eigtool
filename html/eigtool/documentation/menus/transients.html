@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool Transients Menu</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>Transients Menu</h1>
+
+If a menu item in the table below is a hyperlink, click to see
+examples.
+<table border=1>
+<tr><td><a href="#power_ex">Matrix Powers</a></td>
+<td><a name="power">Create a new figure and plot ||A^k|| against k. A
+lower bound computed using the spectral radius will be shown as a
+black dashed line. Press the Stop button in that figure to terminate
+the computation. The lower bound (spectral radius)^k is drawn as a
+black dashed line.</td></tr>
+
+<tr><td><a href="#exps_ex">Matrix Exponentials</a></td>
+<td><a name="exps">Create a new figure and plot ||exp(tA)|| against
+t. A lower bound computed using the spectral abscissa will be shown as
+a black dashed line. Press the Stop button in that figure to terminate
+the computation. The lower bound exp(t*(spectral abscissa)) is drawn
+as a black dashed line.</td></tr>
+
+<tr><td><a href="#comp_ex">Compute a Bound</a></td> <td><a
+name="comp">Compute a lower bound based on the resolvent norm
+(pseudospectra) at a point you will be asked to select. This will be
+plotted as a green line on the Transient plot.</td></tr>
+
+<tr><td><a href="#best_ex">Best Estimate Lower
+Bound</a></td><td><a name="best">Select the best lower
+bound based on all of the gridpoints used for the pseudospectra
+computation.</td></tr>
+
+<tr><td>Information</td> <td><a name="info">Display
+a description of the lower bound computed using the above
+option.</td></tr>
+
+</table>
+
+<h1>Some specific examples</h1>
+
+For these examples we use the Transient <a
+href="demos.html">Demo</a>, a matrix that is constructed to have
+transient behaviour in both its powers and exponentials. The
+eigenvalues and pseudospectra are shown below: <p><center>
+<img src="../images/transient_eigtool.gif" alt="EigTool: Transient demo">
+</center>
+<p>Note that the <a href="extras.html#imaga">imaginary axis</a> and <a
+href="extras.html#unitc">unit circle</a> are shown: these can be
+turned on using the menu options.
+
+<a name="power_ex">
+<h2>Matrix Powers</h2>
+
+If we look at the norms of the powers of this matrix, we get the
+following plot after a few seconds of computation:
+<p><center>
+<img src="../images/transient_pwr.gif" alt="Transient behaviour of powers of A">
+</center>
+<p>Although the largest eigenvalue (in absolute value) predicts the
+decay given by the black dashed line (it is inside the unit circle),
+the norm of the powers grows over one hundredfold before
+decaying as expected from the spectral radius [abscissa].
+
+<a name="exps_ex">
+<h2>Matrix Exponentials</h2>
+
+If we look at the norms of the matrix exponential exp(t*A) for various
+values of t, we get the
+following plot after a few seconds of computation. When prompted, we
+chose a time step dt=2:
+<p><center>
+<img src="../images/transient_exp.gif" alt="Transient behaviour of exponentials of A">
+</center>
+<p>Although the largest real part of an eigenvalue predicts the decay
+given by the black dashed line (it is in the left half-plane), the
+norm grows over one hundredfold before decaying according to the
+theory.
+
+<a name="comp_ex">
+<h2>Compute a Bound</h2>
+
+Using pseudospectra, it is possible to compute lower bounds on the
+size of this transient growth. After selecting this option, you will
+be asked to click on a point in the complex plane to base the bound
+upon; the bound is then computed as follows [1], where R is the resolvent
+norm at the selected point z. The bound will be computed over the
+values of k (or t) currently visable on the transient plot
+
+<P><b>For matrix powers:</b>
+<p><tt>max<sub>{1<=k<=K}</sub>||A^k|| >=
+r^K/(1+(r^K-1)/((r-1)*(rR-1)))</tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (only valid for <tt>|z| = r > 1</tt>).
+
+<P><b>For matrix exponentials:</b>
+<p><tt>sup<sub>{0<=t<=T}</sub>||exp(t*A)|| >=exp(a*T)/(1+(exp(a*T)-1)/(aR))</tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (only valid for <tt>Re(z) = a > 0</tt>).
+
+<p>Clicking on a point near z=0.2 gives the following plot:
+<p><center>
+<img src="../images/transient_expb.gif" alt="Lower bound on the transient behaviour of exponentials of A">
+</center>
+
+<p>The bound appears as a green curve on the transient plot (with the
+selected point highlighted on the pseudospectra plot). For any
+particular point on this curve at step K (or time T), the bound says
+that the transient growth must have been at least this large for some
+point k < K (or t < T).
+
+<p>[1]: L. N. Trefethen, 2002, unpublished note
+
+<a name="best_ex">
+<h2>Best Estimate Lower Bound</h2>
+
+As well as allowing the user to select a point to base their bound
+upon (see <a href="#comp_ex">Compute a Bound</a>), a best
+estimate of the lower bound over <i>all</i> of the points in the grid
+used for the current pseudospectra can be computed:
+<p><center>
+<img src="../images/transient_expbeb.gif" alt="Best estimate lower bound on the transient behaviour of exponentials of A">
+</center>
+<p>In general, this bound is usually within an order of magnitude of
+the true growth.
+
+
+<p><hr>
+<p>EigTool <a href="../../index.html" target="_top">home page</a>.
+</body>
+</html>

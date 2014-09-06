@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool ARPACK/eigs Menu</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>ARPACK/eigs Menu</h1>
+
+Note that this menu will only be enabled when the ARPACK/eigs option
+is selected in the <a
+href="../panes/index.html#direct">Direct/Iterative</a> pane. <a
+href="http://www.caam.rice.edu/software/ARPACK/" target="_top">ARPACK</a> is a
+Fortran code for computing eigenvalues of large, sparse matrices;
+<tt>eigs</tt> in MATLAB calls the Fortran ARPACK routines directly.
+
+<P>If a menu item in the table below is a hyperlink, click to see
+examples.
+
+<table border=1>
+<tr><td>Maximum Subspace Size (p)...</td><td>&nbsp;</td> <td><a
+name="p">Select the maximum size that eigs will build a subpace out to
+(<tt>opts.p</tt>).</td></tr>
+
+<tr><td>Convergence Tolerance (tol)...</td><td>&nbsp;</td> <td><a
+name="tol">Set the convergence tolerance for eigs (<tt>opts.tol</tt>)
+</td></tr>
+
+<tr><td>Maximum Number of Restarts (maxit)...</td><td>&nbsp;</td>
+<td><a name="maxit"> Set the maximum number of restarts to take before
+quitting (<tt>opts.maxit</tt>) </td></tr>
+
+<tr><td>Starting Vector (v0)...</td><td>&nbsp;</td> <td><a
+name="v0">Set the starting vector for eigs to use; you will be
+prompted to enter a MATLAB command to create the vector
+(<tt>opts.v0</tt>)</td></tr>
+
+<tr><td>Automatic Axes</td><td>&nbsp;</td> <td><a name="auto">If this
+item is toggled on, the axes will automatically adjust during the eigs
+computation to ensure that all the Ritz values and shifts are
+visible. Once the axes are changed manually, this option is
+automatically deselected; to use automatic axes again, you need to
+select this menu item.  </td></tr>
+
+<tr><td>Show Progress...</td><td><a href="#shift_ex">Ritz
+Values/Shifts</a></td> <td><a name="shift">Display the eigenvalues of
+the current projected matrix H at each implicit restart. Those being
+used as shifts will be drawn as red pluses, with those Ritz values
+that approximate the desired eigenvalues (not used as shifts) plotted
+as black dots</td></tr>
+
+<tr><td>&nbsp;</td><td><a href="#allshift_ex">All
+Shifts</a></td><td><a name="allshift">Same as above, but all of the
+shifts used so far will be plotted.</td></tr>
+
+<tr><td>&nbsp;</td><td><a href="#psa_ex">Pseudospectra</a></td> <td><a
+name="psa">Compute the pseudospectra of the rectangular Hessenberg
+matrix at each implicit restart; this can give some idea of the
+nonnormality of the problem as the computation proceeds. Note that
+using this option will slow down the computation, especially when the
+original matrix is small.</td></tr>
+</table>
+
+<h1>Some specific examples</h1>
+
+<a name="shift_ex">
+<h2>Show Progress...Ritz Values/Shifts</h2>
+
+This is the default option when computing eigenvalues using
+ARPACK/eigs. Below we see the Elliptic PDE <a
+href="demos.html">Demo</a> after 6 implicit restarts: the eigenvalues
+of the projected matrix being shifted with are shown as red plusses,
+with those being kept as black dots.  <p><center>
+<img src="../images/pde900_eigtool_s.gif" alt="EigTool: Elliptic PDE with eigs (current shifts)">
+</center>
+
+<a name="allshift_ex">
+<h2>Show Progress...All Shifts</h2>
+
+It can often be useful to see not only the shifts being used at the
+current implicit restart, but all those that have been used
+already. In the figure below, we see all the shifts used up to (and
+including) the 8th implicit restart:
+<p><center>
+<img src="../images/pde900_eigtool_as.gif" alt="EigTool: Elliptic PDE with eigs (all shifts)">
+</center>
+
+<a name="psa_ex">
+<h2>Show Progress...Pseudospectra</h2>
+
+The final option for viewing progress during an eigs computation is to
+see the pseudospectra of the rectangular Hessenberg matrix after each
+implicit restart, which gives some idea of the nonnormality of the
+problem as the iteration progresses. The figure below shows the
+pseudospectra of the Hessenberg matrix after the 9th implicit restart:
+<p><center>
+<img src="../images/pde900_eigtool_psa.gif" alt="EigTool: Elliptic PDE with eigs (pseudospectra)">
+</center>
+
+
+<p><hr>
+<p>EigTool <a href="../../index.html" target="_top">home page</a>.
+</body>
+</html>

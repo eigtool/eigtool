@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool Extras Menu</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>Extras Menu</h1>
+
+If a menu item in the table below is a hyperlink, click to see
+examples.
+<table border=1>
+<tr><td><a href="#opts_ex">Options Code for Printing</a></td> <td><a
+name="opts">Selecting this item outputs text to the MATLAB window
+which can then be cut and paste into a script. The text contains
+commands that set up the necessary options to recompute the current
+plot <i>exactly</i> as a printable plot. Note that this option
+requires the recomputation of the pseudospectra data, as well as
+access to the original matrix.</td></tr>
+
+<tr><td><a href="#quick_ex">Save for Quick Print Creation</a></td>
+<td><a name="quick">This option is similar to above, except that it
+saves the necessary data for re-creating the current pseudospectra in
+a .mat file. A printable plot can then be created almost instantly by
+calling EigTool with a single argument, the name of the file the data
+was saved in.</td></tr>
+
+<tr><td>Projection Level</td> <td><a name="proj">This parameter
+controls the amount of projection to use when computing pseudospectra;
+see the <a href="../proj_tutorial/index.html">Projection Tutorial</a> for information
+on choosing good values.</td></tr>
+
+<tr><td>Colour</td> <td><a name="cols">Toggle colour or black lines
+for the pseudospectra, useful if preparing plots for
+publication.</td></tr>
+
+<tr><td>Thick Lines</td> <td><a name="line">Toggle thick or thin
+lines; thick lines are better for presentations (especially online,
+where a data projector is being used), whilst thin ones are better for
+publication plots.</td></tr>
+
+<tr><td><a href="#levs_ex">Arbitrary Levels</a></td> <td><a
+name="levs">Allows the use of epsilon levels which are not equally
+spaced, and hence cannot be entered using EigTool's standard <a
+href="../panes/index.html#levels">Contour Levels</a>
+pane.</td></tr>
+
+<tr><td>Accuracy of FoV Comp.</td> <td><a name="accfov">By default the
+<a href="../buttons/index.html#fov">field of values</a> (numerical
+range) is computed by connecting 40 points on its exterior using
+straight lines. This option allows the default value to be changed if
+finer resolution is required (the number must be even).</td></tr>
+
+<tr><td>Display Eigenvalues</td> <td><a name="ews">For some plots it
+may be desirable to remove the eigenvalues (for example if it is known
+that the pseudospectra are correct for a particular discretisation,
+but the eigenvalues are not).</td></tr>
+
+<tr><td>Display Pseudospectra</td> <td><a name="psa">Similarly, there
+may be cases where only the eigenvalues are of interest, and the
+pseudospectra need to be turned off.</td></tr>
+
+<tr><td>Display Dimension</td> <td><a name="dims">Displays the
+dimension of the matrix in the bottom left hand corner of the
+axes. This is useful for determining the size of the projected matrix
+if projection is being used.</td></tr>
+
+<tr><td>Display Gridpoints</td> <td><a name="grid">Displays the grid
+used for the pseudospectra computation; EigTool computes the norm of
+the resolvent inv(z*I-A) at points z in a grid over the current
+portion of the complex plane.</td></tr>
+
+<tr><td>Display Imaginary Axis</td> <td><a name="imaga">This item
+toggles the display of a grey line on the imaginary axis, useful for
+determing the stability of certain operators.</td></tr>
+
+<tr><td>Display Unit Circle</td> <td><a name="unitc">This item toggles
+the display of a grey line on the unit circle, useful for determing
+convergence properties in certain applications.</td></tr>
+
+<tr><td>Display Colourbar</td> <td><a name="cbar">This item toggles
+the display of the colourbar showing the different epsilon levels
+plotted by EigTool. This is especially useful for creating printable
+plots without the colourbar.</td></tr>
+</table>
+
+<h1>Some specific examples</h1>
+
+<a name="opts_ex">
+<h2>Options Code for Printing</h2> 
+
+As an example of creating options code, we will show how we created
+the options for the Orr-Sommerfeld demo from the <a
+href="demos.html">Demos</a> menu. The following commands can be used
+to create the matrix and start EigTool: <p><tt> A =
+orrsommerfeld_demo(100);<br> eigtool(A);
+</tt>
+<p>The initial plot created by EigTool is shown below:
+<p><center>
+<img src="../images/os_eigtool_init.gif" alt="EigTool: the initial Orr-Sommerfeld plot"></center>
+
+<P>For this discretisation, it is known that only the rightmost
+eigenvalues approximate those of the operator, so we change the axes
+using either the text boxes or the mouse to focus on the area we
+want. <a href="extras.html#imaga">Adding the imaginary axis</a> allows
+us to see whether this operator is stable (which side of the line does
+the rightmost eigenvalue lie on?), and increasing the number of grid
+points to 50 gives a smooth plot:
+<p><center>
+<img src="../images/os_eigtool_detail.gif" alt="EigTool: detail of the Orr-Sommerfeld plot"></center>
+
+<p>If the Options Code for Printing menu option is now selected, the
+following text is output in the main MATLAB window:
+<p><tt>
+% Run the following commands to set up the necessary<br>
+% options to create a printable plot of the pseudospectra.<br>
+% Create the plot using 'eigtool(A,opts)' where A is your matrix.<br>
+% (If you are using eigs, simply pass these options along with<br>
+% the eigs options to eigs itself.)<br>
+opts.npts=50;<br>
+opts.levels=-7.5:0.5:-2;<br>
+opts.ax=[-1         0.2       -1.05           0];<br>
+opts.proj_lev=Inf;<br>
+opts.colour=1;<br>
+opts.thick_lines=1;<br>
+opts.scale_equal=1;<br>
+opts.grid=0;<br>
+opts.dim=1;<br>
+opts.no_ews=0;<br>
+opts.no_psa=0;<br>
+opts.fov=0;<br>
+opts.direct=1;<br>
+opts.print_plot=1;
+</tt>
+<p>To use this, copy it and paste it into a script (or the MATLAB
+window), and add the lines
+<p><tt>
+A = orrsommerfeld_demo(100);<br>
+eigtool(A,opts);
+</tt>
+<p>Running this script will then create a printable plot of the
+eigenvalues and pseudospectra exactly as above:
+<p><center>
+<img src="../images/os_pp_detail.gif" alt="Printable plot: detail of the Orr-Sommerfeld plot"></center>
+<p>Note that if you want to be left with an EigTool session rather
+than a printable plot, simply set <tt>opts.print_plot=0</tt>. For full
+details of the options available, please see <a href="../options/index.html">Command
+Line Options</a>. 
+
+<a name="quick_ex">
+<h2>Save for Quick Print Creation</h2> 
+
+For some problems, the time taken to compute the pseudospectra data
+may be substantial, and so it is desirable to have a method of saving
+the computed data needed to create the plot, rather than the options
+used as above. If we use this menu option to save the data into a file
+called, say, <tt>os_test.mat</tt>, the printable plot below (which is
+identical to that above) can be instantly created using the command:
+<p><tt>eigtool('os_test');</tt> <p><center> <img
+src="../images/os_pp_detail.gif" alt="Printable plot: detail of the Orr-Sommerfeld plot"></center>
+
+<a name="levs_ex">
+<h2>Arbitrary Levels</h2> 
+
+The exponentially spaced epsilon levels used as default by EigTool
+are generally good, but for some problems more user control may be
+desired. The Aribtrary Levels option is there to provide this by
+allowing the user to enter their own levels via a text box:
+<p><center>
+<img src="../images/random_eigtool_init.gif" alt="EigTool: Random (100) example, exponential levels"></center>
+<p>In this example, the Random <a href="demos.html">Demo</a> is
+shown, but for this near-normal matrix equally spaced levels may be
+more appropriate:
+<p><center>
+<img src="../images/random_eigtool_equ.gif" alt="EigTool: Random (100) example,  equally spaced levels"></center>
+<p>Notice that the levels shown in the colourbar are no longer equally
+spaced as an indication that non-exponentially spaced levels are being used.
+
+<p><hr>
+<p>EigTool <a href="../../index.html" target="_top">home page</a>.
+</body>
+</html>

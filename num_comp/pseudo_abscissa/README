@@ -1,0 +1,42 @@
+
+FILES:
+This directory contains files and subdirectories for the 
+criss cross algorithm to find eps-pseudospectral abscissa 
+introduced in [1].  
+
+	-chameig 	: Directory containing Mex files 
+			(implemented by Emre Mengi) for 
+		     	Peter Benner's fortran code to compute
+		     	eigenvalues of a complex Hamiltonian matrix 
+		   	Benner's source code is also included.
+	-hameig		: Directory containing Mex files 
+			(implemented by Peter Benner) for 
+		     	Peter Benner's fortran code to compute 
+                   	eigenvalues of a real Hamiltonian matrix
+			Benner's source code is also included. 
+	-pspa_2way.m 	: main m-file to compute eps-pseudospectral abscissa.
+	-pspa_2way_imag.m : m-file used by pspa_2way.m (vertical search in [1]).
+	-pspa_2way_real.m : m-file used by pspa_2way.m (horizontal search in [1]). 
+	-isnaninf.m 	: m-file called by pspa_2way.m.
+
+
+USAGE:
+1- Directories chameig and hameig already contain the 
+   compiled mex object files for Sun Solaris. If you
+   need to recreate mex object files, please refer to
+   README files under these directories. 
+2- Add the directories chameig and hameig into your matlabpath
+   by typing(assuming you are in this directory, pseudo_abscissa),
+
+	addpath hameig
+	addpath chameig
+
+   Or otherwise make sure that the files under these directories
+   are accessible from your current matlab directory.
+3- Just call pspa_2way with correct parameters. Type 'help pspa_2way'
+   to learn about the input and output parameters of this function. 
+
+
+References:
+[1]  "Robust Stability and a Criss-Cross Algorithm for Pseudospectra",
+     J.V. Burke, A.S. Lewis and M.L. Overton.

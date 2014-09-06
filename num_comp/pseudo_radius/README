@@ -1,0 +1,14 @@
+
+FILES:
+This directory contains files for the 2-way method
+to find eps-pseudospectral radius.
+
+	-pspr_2way.m  : main m-file to compute eps-pseudospectral radius.
+	-pspr_2way_rad.m : m-file used by pspr_2way.m (radial search).	
+	-pspr_2way_theta.m : m-file used by pspr_2way.m (circular search).
+	-plotcircle.m	: m-file called by pspr_2way_theta.m.
+
+
+USAGE:
+1- Call pspr_2way with correct parameters. Type 'help pspr_2way'
+   to learn about the input and output parameters of this function.  

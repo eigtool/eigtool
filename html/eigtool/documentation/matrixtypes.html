@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>Matrix Types</title>
+        <link rel="stylesheet"
+              href="../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../images/grcar6_t.gif">
+
+<h1>Matrix Types</h1>
+
+It is possible to call EigTool with three different types of matrices:
+<a href="#d_sq">Dense Square Matrices</a>, <a href="#s_sq">Sparse
+Square Matrices</a> and <a href="#d_re">Dense Rectangular
+Matrices</a>.
+
+<a name="d_sq">
+<h2>Dense Square Matrices</h2>
+
+If a dense square matrix has dimension smaller than about 1000, it is
+possible to compute a Schur decomposition of the matrix in a
+reasonable amount of time. For matrices such as these, this is the
+first thing EigTool does, obtaining the eigenvalues from the diagonal
+entries of the triangular Schur factor. Assuming that no <a
+href="options/index.html#opts">options</a> have been defined, the axes
+to compute the initial pseudospectra on are dertermined by the
+position of the eigenvalues. A default number of grid points based on
+the matrix dimension will be chosen, and once the singular value data
+has been computed appropriate <a
+href="panes/index.html#levels">Contour Levels</a> are calculated. As
+an example, the command <tt>eigtool(gallery('grcar',100))</tt>
+produces the figure:
+<p><center><img src="images/grcar_eigtool_def.gif"
+alt="EigTool and Grcar(100)"></center>
+
+<p>If the matrix is larger than 1000 then the Schur decomposition can
+be prohibitively expensive. In this case, EigTool offers the user the
+choice of using <a href="panes/index.html#direct">iterative
+methods</a> instead (ARPACK/eigs) to compute a few eigenvalues of
+interest. As an example, consider <tt>eigtool(triu(randn(1001),-1))</tt>:
+EigTool asks whether you would like to use iterative methods:
+<p><center><img src="images/d_sq_large.gif"
+alt="EigTool and randn(1001)"></center>
+<p>If we click on ARPACK/eigs, and ask for 20 eigenvalues of largest
+modulus, EigTool fairly quickly produces the following plot, which is
+obtained by projecting the original matrix onto a lower dimensional
+invariant subspace, and approximating the pseudospectra with the
+pseudspectra of this projected matrix:
+<p><center><img src="images/d_sq_large_comp.gif"
+alt="EigTool and triu(randn(1001),-1)"></center>
+
+<a name="s_sq">
+<h2>Sparse Square Matrices</h2>
+
+The case of sparse, square matrices is a little more complicated. If
+the matrix is small (dimension less than 1000), you will be offered
+the chance to convert it to a dense matrix, and the proceed using the
+techniques described <a href="#d_sq">above</a>. Assuming that this is
+not done, there are two possibilities: you can use <a
+href="panes/index.html#direct">iterative methods</a> (ARPACK/eigs) to
+compute some eigenvalues and approximate the pseudospectra locally, or
+you can use a direct method to compute the (exact) pseudospectra only
+in a user-specified region. This is particularly useful when trying to
+see how well the approximate pseudospectra match the true
+ones. As an example, we use the matrix <tt>pde225</tt> from Matrix
+Market: <tt>cd eigtool/private/; eigtool(mmread('pde225.mtx'));</tt>
+<p><center><img src="images/s_sq_small.gif" alt="EigTool and
+pde225.mtx"></center> <p>Using ARPACK/eigs, looking for 20 eigenvalues
+of largest modulus, we get the following eigenvalues and approximate
+pseudospectra: <p><center><img src="images/s_sq_small_arp.gif"
+alt="EigTool and pde225.mtx (ARPACK/eigs)"></center> <p>Repeating the
+above command, but selecting Sparse Direct gives us the exact pseudospectra
+(but no eigenvalues): <p><center><img src="images/s_sq_small_sd.gif"
+alt="EigTool and pde225.mtx (Sparse direct)"></center> <p>Note that
+when using a sparse direct method, you will be prompted for the axes
+to compute on unless you provide eigenvalues using the <a
+href="options/index.html#opts">options</a>.
+
+<a name="d_re">
+<h2>Dense Rectangular Matrices</h2>
+
+The final class of matrices that EigTool can handle are those that are
+dense and rectangular. The most common need for this kind of matrix is
+the rectangular (n+1)-by-n Hessenberg matrix created by <tt>eigs</tt>,
+whose pseudospectra are subsets of the pseudospectra of the original
+matrix. EigTool can handle general rectangular matrices, though. Since
+rectangular matrices have no eigenvalues in general, EigTool will
+prompt for axes to compute the pseudospectra over, before behaving in
+the usual way.
+
+<p><hr>
+<p>EigTool <a href="../index.html" target="_top">home page</a>.
+</body>
+</html>

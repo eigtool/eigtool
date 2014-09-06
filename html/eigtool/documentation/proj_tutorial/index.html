@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>Projection Tutorial</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../images/grcar6_t.gif">
+
+<hr width=450><center><table>
+<tr>
+<td align=left width=150></td>
+<td align=center>Start,
+<a href="proj_tut_p2.html">Page 2</a>,
+<a href="proj_tut_p3.html">Page 3</a>,
+<a href="proj_tut_p4.html">Page 4</a>,
+<a href="proj_tut_p5.html">Page 5</a>.</td>
+<td align=right width=150><a href="proj_tut_p2.html">Next &gt;&gt;</a></td>
+</table></center><hr width=450>
+
+<h2>Projection Tutorial</h2>
+
+<P>This tutorial is designed to take you through an example where the
+the time needed to create a high-resolution publication quality plot
+of the pseudospectra of a matrix is significantly reduced by
+projection onto a carefully chosen invariant subspace.
+
+<p>This tutorial assumes that you have already <a href="http://www.comlab.ox.ac.uk/pseudospectra/eigtool/download/"
+target="_top">downloaded</a> the latest version of EigTool, and have
+followed all of the installation instructions on that page.
+
+<p>The tutorial is organised into five parts:
+<ul>
+<li>Step 1: Set up the data
+<li>Step 2: Select the portion of the complex plane of interest
+<li>Step 3: Begin to introduce projection
+<li>Step 4: Reduce the projection parameter still further
+<li>Step 5: Compute the pseudospectra on a fine grid of size 200 by 200
+</ul>
+
+<p>You can download the code used to generate the matrices used in
+this tutorial by clicking <a href="lnt_comp_psa_mtxs.m">here</a>. This
+is taken from Trefethen's paper, Computation of Pseudospectra (Acta
+Numerica, 1999), which describes projection in greater detail.
+
+<ul>
+<li><h4>Step 1: Set up the data.</h4>
+
+Generate the matrix B by downloading the <a
+href="lnt_comp_psa_mtxs.m">code</a> and running it with N=200:
+<p><tt>B = lnt_comp_psa_mtxs(200);</tt>
+
+<p>Compute the pseudospectra using the default settings:
+<p><tt>eigtool(B)</tt>
+<p>You should end up with something like the following image, which
+takes about 30 seconds to generate on my Sun Ultra 5 workstation.
+ 
+<p>Note the large magnitudes of the x and y axes. Thes axes are chosen
+automatically by EigTool, and are this big because of
+the outlying eigenvalue near -80,000.
+
+<p><center><img alt="Initial pseudospectra plot" src="initial_psa.gif"></center>
+
+</ul>
+
+<hr width=450><center><table>
+<tr>
+<td align=left width=150></td>
+<td align=center>Start,
+<a href="proj_tut_p2.html">Page 2</a>,
+<a href="proj_tut_p3.html">Page 3</a>,
+<a href="proj_tut_p4.html">Page 4</a>,
+<a href="proj_tut_p5.html">Page 5</a>.</td>
+<td align=right width=150><a href="proj_tut_p2.html">Next &gt;&gt;</a></td>
+</table></center><hr width=450>
+
+<p><hr>
+<p>EigTool <a href="../../index.html" target="_top">home page</a>.
+</body>
+</html>
+
+</body>
+
+</html>

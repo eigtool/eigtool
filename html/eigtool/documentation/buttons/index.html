@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool Buttons</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>EigTool Buttons</h1>
+
+If a menu item in the table below is a hyperlink, click to see
+examples.
+
+<table border=1>
+
+<tr><td>Go!/Stop!</td> <td><a name="go">This button will only be
+enabled if options have been changed that require recomputation of the
+pseudospectra. When it is pressed, it will change to a red Stop!
+button that can be used to stop the computation in progress.</td></tr>
+
+<tr><td>Pause/Resume</td> <td><a name="pause">This button is only
+enabled when a computation is in progress. If it is pressed, the
+computation will be paused until the button is pressed
+again.</td></tr>
+
+<tr><td><a href="#fov_ex">Field of Vals.</a></td> <td><a
+name="fov">This button will compute and display the field of values
+(numerical range) of the matrix. If you wish to change the number of
+points used in the compution of the field of values, use the menu
+option <a href="../menus/extras.html#accfov">Accuracy of FoV Comp.</a>
+in the <a href="../menus/extras.html">Extras</a> menu. 
+<p>To remove the field of values from the plot, simply click on the
+button again. If you wish to turn it on again, it will not need to be
+recomputed unless the number of points defining it has been
+changed.</td></tr>
+
+<tr><td><a href="#mode_ex">Mode + Cond. No.</a></td> <td><a
+name="mode">After clicking on this button, you will be asked to select
+an eigenvalue by clicking on the pseudospectra plot; the eigenvalue
+nearest to your click will be chosen. A figure will then be produced
+that plots the eigenmode corresponding to this eigenvalue against its
+index. The top plot shows an envelope produced by plotting the
+absolute value and minus the absolute value of the eigenmode, and the
+real part will be shown as a cyan line. The bottom plot shows the
+absolute value of the eigenmode on a log scale, useful for seeing how
+quickly an eigenmode is decaying. In addition to the plot of the
+eigenmode, the condition number of the eigenvalue is computed and
+shown in the top plot. Note that a large condition number indicates
+that the eigenvalue is very sensitive to perturbations.  <P>If a
+second eigenmode is plotted, it will overwrite the first one unless
+the Keep this Eigenmode option is selected from the Eigenmode Controls
+menu of the eigenmode figure. If it is, a new figure will be created
+for the second (and subsequent) eigenmodes.  </td></tr>
+
+<tr><td><a href="#pmode_ex">Pmode + epsilon</a></td> <td><a
+name="pmode">This button produces a plot that is similar to the <a
+href="#mode">Mode + Cond. No.</a> plot, except that this time any
+point in the complex plane can be selected, and a pseudoeigenmode
+corresponding to this point is drawn. This time, the value of (the
+inverse of) the resolvent norm at the point is shown in place of the
+eigenvalue condition number. The real part of a pseudomode is plotted
+in magenta to distinguish it from an eigenmode. The pseudomode shown
+is the right singular vector corresponding to the smallest singular
+value of the matrix zI-T, where z is the point selected by the user.
+<p>Pseudomodes appear in separate figures from eigenmodes, but as with
+eigenmodes, a second pseudomode will use the same figure unless the
+Keep this Psuedomode option is selected.  </td></tr>
+
+<tr><td><a href="#3dplot_ex">3D Plot</a></td> <td><a
+name="3dplot">This button creates a new figure with a 3D surface plot
+of the current pseudospectra data. An additional menu, `Plot Controls'
+is added to this figure, allowing control over the look of the
+plot.</td></tr>
+
+<tr><td>Quit</td> <td><a name="quit">Exit EigTool.</td></tr>
+
+</table>
+
+<h1>Some specific examples</h1>
+
+<a name="fov_ex">
+<h2>Field of Vals.</h2> 
+
+This example is based on the Kahan matrix in the <a
+href="../menus/demos.html">Demos</a> menu; the field of values is shown as a
+dashed black line:
+<p><center>
+<img src="../images/kahan_eigtool_fov.gif" alt="EigTool: field of values of the Kahan matrix"></center>
+<P>
+
+<a name="mode_ex">
+<h2>Mode + Cond. No.</h2> 
+
+The figure below shows the eigenvalues and pseudospectra of Davies'
+matrix, with the cyan circle indicating the eigenvalue selected after
+clicking on Mode + Cond. No:
+<p><center>
+<img src="../images/davies_eigtool.gif" alt="EigTool: Davies' matrix"></center>
+<P>
+The corresponding eigenmode with its condition number is shown in this figure:
+<p><center>
+<img src="../images/davies_emode.gif" alt="Eigenmode for Davies' matrix"></center>
+<P>
+
+<a name="pmode_ex">
+<h2>Pmode + epsilon</h2> 
+
+Using the same matrix as for <a href="#mode_ex">Mode + Cond. No.</a>,
+we can plot a pseudomode corresponding to z=15+10i:
+<p><center>
+<img src="../images/davies_pmode.gif" alt="Pseudomode for Davies' matrix"></center>
+<P>
+
+<a name="3dplot_ex">
+<h2>3D Plot</h2> 
+
+Using the built in `Companion' matrix demo, clicking on 3D plot
+creates the following figure:
+<p><center>
+<img src="../images/companion_3d_plot.gif" alt="3D plot of Companion"></center>
+<P>
+
+<p><hr>
+<p>EigTool <a href="../../index.html" target="_top">home page</a>.
+</body>
+</html>

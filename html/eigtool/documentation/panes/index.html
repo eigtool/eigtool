@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool Panes</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>EigTool Panes</h1>
+
+If a menu item in the table below is a hyperlink, click to see
+examples.
+
+<table border=1>
+
+<tr><td>Figure Axes</td> <td><a name="axes">This pane allows control
+of the current axes. By default, the scale on the real and imaginary
+axes is equal, but if this is not required it can be turned off by
+toggling the check box Scale Equal.
+<p>The axis limits can be controlled by entering text in the text
+boxes; the axes will change when the cursor leaves the box or the
+Return key is pressed.</td></tr>
+
+<tr><td><a href="#direct_ex">Direct/Iterative</a></td> <td><a
+name="direct">This pane controls whether a direct method (either dense
+or sparse, depending on the matrix type) or iterative method
+(<tt>eigs</tt>) is used. If <tt>eigs</tt> is being used, there are
+options to control the number of eigenvalues to request and the
+portion of the spectrum to focus on; for more <tt>eigs</tt> options,
+see the <a href="../menus/arpack.html">ARPACK/eigs</a> menu.</td></tr>
+
+<tr><td><a href="#levels_ex">Contour Levels</a></td> <td><a
+name="levels">This is where the contour levels plotted are controlled
+from. The three text boxes allow you to enter the smallest and largest
+level to draw, and the jump between levels. The button Smart Levels
+will use EigTool's default levels.</td></tr>
+
+<tr><td>Mesh</td> <td><a name="mesh">Use this text box to control the
+mesh size for the pseudospectra computation. A finer mesh will give a
+smoother picture (at least when printed as a postscript file, even if
+not on the screen), but the computation will take longer.</td></tr>
+</table>
+
+<h1>Some specific examples</h1>
+
+<a name="direct_ex">
+<h2>Direct/Iterative</h2> 
+
+For this example, we first compute the eigenvalues and pseudospectra
+of the Basor-Morrison Toeplitz matrix from the <a
+href="../menus/demos.html">Demos</a> menu: <p><center> <img
+src="../images/basor_eigtool.gif" alt="EigTool: Basor-Morrison matrix
+(dense methods)"></center>
+<P>
+Now, instead of using a (dense) direct method for this 50 by 50
+matrix, we can switch to using ARPACK/eigs, and ask for 15 eigenvalues
+of largest real part:
+<p><center>
+<img src="../images/basor_eigtool_eigs.gif" alt="EigTool: Basor-Morrison matrix (sparse methods)"></center>
+<P>
+Notice that when EigTool finishes computing the eigenvalues with
+<tt>eigs</tt>, the pseudospectra based on the rectangular Hessenberg
+matrix created during the Arnoldi iteration are plotted. These are
+subsets of the true pseudospectra, as can be easily seen here.
+
+<a name="levels_ex">
+<h2>Contour Levels</h2> 
+
+For this example, we first compute the eigenvalues and pseudospectra
+of the Random Triangular matrix from the <a
+href="../menus/demos.html">Demos</a> menu, and then zoom in on the
+left portion of the spectrum using the mouse. After recomputing the
+pseudospectra on this new region of the complex plane, we get the
+following figure:
+<p><center>
+<img src="../images/randtri_eigtool.gif" alt="EigTool: Random Triangular matrix"></center>
+<P>
+The contour levels we see are the same as those determined by EigTool
+when the first pseudospectra plot was produced, on the original
+axes. If we only want to consider levels appropriate to the axes we
+now have after zooming, we can press the Smart Levels button to allow
+EigTool to choose the appropriate levels for us:
+<p><center>
+<img src="../images/randtri_eigtool_smart.gif" alt="EigTool: Random Triangular matrix, Smart Levels"></center>
+<P>
+The levels displayed using Smart Levels are determined by looking at
+the range of singular values computed on the current grid and the size
+of the current axes.
+
+<p><hr>
+<p>EigTool <a href="../../index.html" target="_top">home page</a>.
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool Kahan Demo</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>EigTool Kahan Demo</h1>
+
+<center><img src="../images/kahan_demo.gif" alt="Kahan Demo"></center>
+
+<p>The Kahan matrix is also in the MATLAB gallery, and can be
+created by the command 
+<p><tt>G = gallery('kahan',N)</tt>
+
+<p>Kahan's matrix [2] was devised to illustrate that QR
+factorisation with column pivoting is not a fail-safe
+method for determining the rank of the matrix. Rank
+determination is related to the "distance to singularity"
+of a matrix [1], or in other words, how large a perturbation
+is needed to make the matrix singular. The pseudospectra are
+shown in [3].
+
+<p>[1]: N. J. Higham, "Matrix nearness problems and applications",
+     NA Rep. 161, Dept. of Maths., U. of Manchester, June 1988.
+<p>[2]: W. Kahan, "Numerical linear algebra", Canad. Math. Bull. 9,
+     pp. 757-801, 1966.
+<p>[3]: L. N. Trefethen, "Psuedospectra of matrices", in
+     "Numerical Analysis 1991" (Dundee 1991), Longman Sci.
+     Tech., Harlow, 1992, 234-266.
+
+
+<p><hr>
+<p>EigTool <a href="demos.html" target="BODY">EigTool Demos Menu</a>.
+</body>
+</html>

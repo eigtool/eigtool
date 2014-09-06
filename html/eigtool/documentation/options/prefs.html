@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool Command Line Options</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>EigTool Preferences</h1>
+
+All of EigTool's default options can be modified using MATLAB
+preferences. For example, the default behaviour of EigTool displays
+the matrix dimension on the plot unless this is overridden using <a
+href="index.html">command line options</a>; some users may prefer that
+the dimension is not displayed by default.
+
+<p>A full list of the default values that can be changed (and their
+current settings) can be seen by typing <tt>getpref('EigTool')</tt> at
+the MATLAB command prompt:
+
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;version:&nbsp;2.02<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SMALL_GUI:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colormap:&nbsp;[64x3&nbsp;double]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;levels_default:&nbsp;'auto'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ax_default:&nbsp;'auto'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proj_lev_default:&nbsp;Inf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colour_default:&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thick_lines_default:&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scale_equal_default:&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print_plot_default:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no_graphics_default:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no_waitbar_default:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dim_default:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid_default:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assign_output_default:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fov_default:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unitary_mtx_default:&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no_ews_default:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no_psa_default:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;imag_axis_default:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unit_circle_default:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_default:&nbsp;'auto'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tol_default:&nbsp;'auto'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0_default:&nbsp;'auto'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which_default:&nbsp;'LM'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxit_default:&nbsp;'auto'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;direct_default:&nbsp;'auto'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print_ew_size:&nbsp;16<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colourbar_default:&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disp_pts_default:&nbsp;'on'<br>
+</code>
+
+<a name="set">
+<h3>Setting a preference</h3>
+Each preference can be changed using the command
+<tt>setpref('EigTool','prefname',value)</tt> where <tt>prefname</tt>
+is the name of the preference being changed, and <tt>value</tt> is the
+new value.
+
+Most of the preferences are the default values for the command line
+options: see <a href="index.html">Command Line Options</a> for a
+description and possible values. The other preferences are described below:
+
+<P><table border=1>
+<tr><td><b>Preference</b></td>
+<td><b>Default</b></td>
+<td><b>Possible values</b></td>
+<td><b>Description</b></td></tr>
+
+<tr><td>version</td><td>2.04</td><td></td><td>The current EigTool version. DO NOT CHANGE THIS VALUE.</td></tr>
+
+<tr><td>SMALL_GUI</td><td>0</td><td>0 or 1</td><td>This switch is used
+to control the size of EigTool: large (0) for desktop machines, smaller
+for some laptops (1).</td></tr>
+
+<tr><td>colormap</td><td>EigTool colourmap</td><td>Any MATLAB
+colourmap</td><td>The colourmap to be used by EigTool. This could be
+changed to <tt>jet</tt> for example, to produce pseudospectra with
+different colours.</td></tr>
+
+<tr><td>disp_pts_default</td><td>'on'</td><td>'on' or 'off'</td><td>Display points when
+using items in the numbers menu automatically?</td></tr>
+</table>
+
+<a name="reset">
+<h3>Resetting all the preferences</h3>
+To reset the preferences to their default values, type the command
+<tt>set_eigtool_prefs('default')</tt> at the MATLAB command prompt.
+
+
+<p><hr>
+<p>EigTool <a href="../../index.html" target="_top">home page</a>.
+</body>
+</html>

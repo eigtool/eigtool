@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool Skew Laplacian Demo</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>EigTool Skew Laplacian Demo</h1>
+
+<center><img src="../images/skewlap_demo.gif" alt="Skew Laplacian Demo"></center>
+
+<p>If the numbers 1.5 and 0.5 in the brief program below were both equal to 1,
+it would generate the standard 7-point large sparse discretization of
+the Laplace operator in three dimensions.  With the numbers 1.5 and 0.5
+as written, we get a highly nonnormal matrix with the same sparsity
+pattern.  A matrix like this might arise in the discretization of a
+convection-diffusion problem.
+
+<p><tt>  I = speye(N-1);
+  <br>D = N^2*toeplitz([-2 1.5 zeros(1,N-3)],[-2 .5 zeros(1,N-3)]);
+  <br>A = kron(I,kron(I,D)) + kron(I,kron(D,I)) + kron(D,kron(I,I));</tt>
+
+
+<p><hr>
+<p>EigTool <a href="demos.html" target="BODY">EigTool Demos Menu</a>.
+</body>
+</html>

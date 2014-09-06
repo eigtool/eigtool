@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool File Menu</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>File Menu</h1>
+
+If a menu item in the table below is a hyperlink, click to see
+examples.
+
+<table border=1>
+
+<tr><td><a href="#new_ex">New Matrix...</a></td><td>&nbsp;</td> <td><a name="new">Use
+this item to bring a new matrix into EigTool. You will be prompted
+to enter a MATLAB command to create the matrix, or the variable name
+of the matrix in the base workspace.</td></tr>
+
+<tr><td>Save Current State</td><td>&nbsp;</td> <td><a name="save">This
+option allows you to save the entire current session of EigTool as a
+MATLAB figure, which you can then reload using the MATLAB
+<tt>open</tt> command.</td></tr>
+
+<tr><td>Save Current State As...</td><td>&nbsp;</td> <td><a
+name="saveas">This allows you to save the entire current session of
+EigTool under another name.</td></tr>
+
+<tr><td>Export</td><td>Eigenvalues</td> <td><a name="ews">Save the
+eigenvalues of the current matrix to a variable in the main MATLAB
+workspace. You will be prompted for a variable name to use.</td></tr>
+
+<tr><td>&nbsp;</td><td>Original Matrix</td> <td><a name="matrix">Save
+the original matrix to a variable in the main MATLAB workspace. You
+will be prompted for a variable name to use. This is useful if, for
+example, you call EigTool from within a script and later want to
+access the matrix, or create the matrix on-the-fly using the <a
+href="#new">New Matrix</a> menu item.</td></tr>
+
+<tr><td>&nbsp;</td><td>Pseudospectra Data</td> <td><a name="data">Save
+the pseudospectra data (vectors x and y defining the grid, and the
+singular value data) to variables in the main MATLAB workspace. You
+will be prompted for the variable names to use.</td></tr>
+
+<tr><td>&nbsp;</td><td>Schur Factor</td> <td><a name="factor">
+Save the triangular Schur factor of the current matrix to the main
+MATLAB workspace. You will be prompted for a variable names to use.</td></tr>
+
+<tr><td><a href="#print_ex">Printable Plot...</a></td><td>&nbsp;</td> <td><a
+name="print">Create a duplicate figure of the eigenvalues and
+pseudospectra without any of EigTool's buttons or controls. You will
+be prompted for a figure number that should be left blank in most
+cases; a new figure will then be created. If you wish to superimpose
+the pseudospectra onto an existing plot, you can enter the figure
+number to use here (ensuring that <tt>hold on</tt> has been set
+first).</td></tr>
+
+<tr><td>Quit</td><td>&nbsp;</td> <td><a name="quit">Exit EigTool.</td></tr>
+</table>
+
+<h1>Some specific examples</h1>
+
+<a name="new_ex">
+<h2>New Matrix...</h2> 
+
+Any valid MATLAB command can be entered when bringing in a new matrix,
+although sequences of commands are not allowed. The following example
+will create a Jordan block of dimension 20:
+<p><center>
+<img src="../images/new_eigtool.gif" alt="EigTool: entering a new matrix"></center>
+<P>
+
+<a name="print_ex">
+<h2>Printable Plot...</h2> 
+
+In the following example, we first describe how the Printable Plot
+option works, and then show how it can be used to superimpose
+eigenvalues and pseudospectra onto an existing plot. The matrix we use
+is the Grcar matrix of dimension 100 (available through the <a
+href="demos.html">Demos</a> menu), and we begin with EigTool as
+follows: <p><center><img src="../images/grcar_eigtool.gif"
+alt="EigTool and Grcar(100)"></center> <p>Selecting Printable Plot and
+clicking on the OK button (without entering any text) leaves us with
+the following figure: <p><center> <img src="../images/grcar_pp1.gif"
+alt="Printable Plot of Grcar(100)"></center> <p>If instead of just
+removing EigTool's buttons we want to add the EigTool plot to another
+figure, we simply enter the number of the figure (in this case 2) into
+the text box when prompted by Printable Plot.  Note that we must first
+ensure that <tt>hold on</tt> has been set, or the figure contents will
+be overwritten. The figure below contains the spectrum of the
+corresponding infinite dimensional Grcar matrix, the entire grey
+region: <p><center> <img src="../images/grcar_sym.gif" alt="Spectrum of the infinite dimensional Grcar matrix"></center>
+<P>
+Here is the output produced by EigTool when the pseudospectra are
+superimposed on top of it.:
+<p><center><img src="../images/grcar_pp2.gif"
+alt="Superimposed Printable Plot of Grcar(100)"></center>
+<p>Notice how the size and axes for the figure are determined by the
+EigTool plot, not those that were already being used for the figure.
+
+<p><hr>
+<p>EigTool <a href="../../index.html" target="_top">home page</a>.
+</body>
+</html>

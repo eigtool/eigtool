@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool Godunov Demo</title>
+        <link rel="stylesheet"
+              href="../../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../../images/grcar6_t.gif">
+
+<h1>EigTool Godunov Demo</h1>
+
+<center><img src="../images/godunov_demo.gif" alt="Godunov Demo"></center>
+
+<p>The "Godunov matrix" is a 7 x 7 matrix that has been used
+by S. K. Godunov to illustrate the difficulty of computing
+certain eigenvalues in floating point arithmetic [1]. The
+entries of A are integers and the exact eigenvalues
+are -4, -2, -1, 0, 1, 2, 4. This can be seen from the
+fact that L*A/L is upper triangular, where L is the
+lower-triangular matrix defined by
+
+<p>      <tt>L = eye(7); L(3,1) = 1; L(6,1) = 1;L(5,3) = 1; L(7,[2 3 5]) = 1;</tt>
+
+<p>[1]: S. K. Godunov, "Modern Aspects of Linear Algebra",
+     Translations of Mathematical Monographs v. 175,
+     Amer. Math. Soc., Providence, RI, 1998.
+
+
+
+
+
+<p><hr>
+<p>EigTool <a href="demos.html" target="BODY">EigTool Demos Menu</a>.
+</body>
+</html>

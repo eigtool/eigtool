@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>EigTool Documentation</title>
+        <link rel="stylesheet"
+              href="../../psastyle.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f8ff" background="../../images/grcar6_t.gif">
+
+<P>
+<P>
+<center><img src="images/eigtool_doc.gif" alt="EigTool documentation"></center>
+
+<p>EigTool is a <a href="http://www.mathworks.com"
+target="_top">MATLAB</a> GUI for computing eigenvalues, pseudospectra
+and related quantities for nonsymmetric matrices, both dense and
+sparse. The following list summarises the main features:
+<ul>
+<li>Graphical interface to <tt>eigs</tt>
+<li>Computation of eigenvalue condition numbers
+<li>Plots of eigenmodes
+<li>Computation of the field of values (numerical range)
+<li>Computation of pseudospectra
+</ul>
+
+<p>This documentation assumes that you have already <a
+href="http://www.comlab.ox.ac.uk/pseudospectra/eigtool/download/" target="_top">downloaded</a> the latest version of EigTool, and
+have followed all of the installation instructions on that page.
+
+<a name="quick">
+<h3>Quick start</h3>
+
+<p>The simplest way to begin using EigTool is to type <tt>eigtool</tt> at
+the MATLAB command prompt; EigTool will start up and wait for you to
+give it a matrix:
+
+<P><center>
+<img src="images/default_eigtool.gif" alt="EigTool on startup">
+</center>
+
+<p>Alternatively, if you already have a matrix you would like to
+compute the pseudospectra of (say <tt>A</tt>), type
+<tt>eigtool(A)</tt>.
+
+<P>If you are unfamiliar with pseudospectra, try running the
+Pseudospectra Tutorial, available through the Help menu, or there are
+many examples that can be viewed using the Demos menu. For a more
+detailed look, the <a href="http://www.comlab.ox.ac.uk/pseudospectra/"
+target="_top"><img align=absmiddle src="../gwlogot.gif"
+alt="Pseudospectra Gateway" border=0></a> contains many more examples
+and explinations to help start you off. If you already have a matrix,
+select the <a href="menus/file.html#new">New Matrix</a> menu item to
+start exploring. As a rule, EigTool computations are usually quite
+fast for matrices of dimensions in the low hundreds.
+
+<P>For a description of all of the types of matrices that EigTool can
+handle, see <a href="matrixtypes.html">Matrix Types</a>.
+
+<a name="interactive">
+<h3>Interactive EigTool use</h3>
+
+Once the eigenvalues and pseudospectra of your matrix have been
+computed, the full list of features of EigTool can be used:
+
+<P><center>
+<img src="images/os_eigtool.gif" alt="EigTool Orr-Sommerfeld demo">
+</center>
+
+<p>These break down into three categories:
+<ul>
+<li><a href="menus/index.html">Menus</a>
+<li><a href="buttons/index.html">Buttons</a>
+<li><a href="panes/index.html">Panes</a>
+</ul>
+
+<a name="command">
+<h3>Using EigTool from the command line</h3>
+
+In addition to its interactive user interface, EigTool can be called
+from the command line with options to control the look of the
+plot. Full details are given in <a href="options/index.html">Command Line Options</a>.
+
+<a name="defaults">
+<h3>Changing the default options</h3>
+
+All of EigTool's default options can be modified using MATLAB
+preferences. For example, the default behaviour of EigTool displays
+the matrix dimension on the plot unless this is overridden using <a
+href="options/index.html">command line options</a>; some users may
+prefer that the dimension is not displayed by default. Full details
+are given in <a href="options/prefs.html">EigTool Preferences</a>.
+
+<p><hr>
+<p>The original version of EigTool was designed and built at Oxford University
+during 2000-2002 by Thomas G. Wright in collaboration with Mark Embree
+and Lloyd N. Trefethen.  The present version is maintained by Mark Embree;
+bug reports should be directed to him at 
+<a href="mailto:embree@rice.edu">embree@rice.edu</a>.
+<p><hr>
+<h3>Disclaimer</h3>
+This software package is delivered "as is". The author makes no
+representation or warranties, express or implied, with respect to the
+software package. In no event shall the author be liable for loss of
+profits, loss of savings, or direct, indirect, special, consequential,
+or incidental damages.
+
+<p><hr>
+<p>EigTool <a href="../index.html" target="_top">home page</a>.
+</body>
+</html>

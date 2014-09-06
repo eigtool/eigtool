@@ -1,0 +1,14 @@
+function G = gallery3_demo(N)
+
+%   G = GALLERY3_DEMO returns matrix G.
+%
+%   G is matrix 3 from the MATLAB gallery: "a badly
+%   conditioned 3-by-3 matrix".
+
+% Version 2.3 (Sat Sep  6 16:27:02 EDT 2014)
+% Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
+% of the University of Oxford, and the EigTool Developers. All rights reserved.
+% EigTool is maintained on GitHub:  https://github.com/eigtool
+% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
+
+  G = gallery(3);
