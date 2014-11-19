@@ -12,11 +12,11 @@ function C = convdiff_fd_demo(N)
 %   [1]: L. Hemmingsson, "A Semi-circulant Preconditioner for the
 %        Convection-Diffusion Equation", Numer. Math 81, 1998, 211-248
 
-% Version 2.3 (Sat Sep  6 16:27:02 EDT 2014)
+% Version 2.4.0 (Wed Nov 19 10:59:50 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
-% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
+% Report bugs/request features at https://github.com/eigtool/eigtool/issues
 
 % Diffusion parameter
 e = 1e-2;

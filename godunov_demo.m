@@ -17,11 +17,11 @@ function G = godunov_demo(N)
 %        Translations of Mathematical Monographs v. 175,
 %        Amer. Math. Soc., Providence, RI, 1998.
 
-% Version 2.3 (Sat Sep  6 16:27:02 EDT 2014)
+% Version 2.4.0 (Wed Nov 19 10:59:50 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
-% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
+% Report bugs/request features at https://github.com/eigtool/eigtool/issues
 
   G = [ 289  2064   336   128    80     32    16
        1152    30  1312   512   288    128    32

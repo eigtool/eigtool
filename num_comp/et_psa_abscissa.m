@@ -5,11 +5,11 @@ function varargout = et_psa_abscissa(varargin)
 % Function to call Mengi & Overton's code for computing the
 % pseudospectral abscissa of the current matrix.
 
-% Version 2.3 (Sat Sep  6 16:27:02 EDT 2014)
+% Version 2.4.0 (Wed Nov 19 10:59:51 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
-% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
+% Report bugs/request features at https://github.com/eigtool/eigtool/issues
 
 % If the argument is 'name', return the text to go in the menu and return
   if isstr(varargin{1}) & strcmp(varargin{1},'name')==1,

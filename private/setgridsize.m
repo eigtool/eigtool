@@ -10,11 +10,11 @@ function npts = setgridsize(n,the_min,the_max,iscomplex)
 %
 % npts    is the size of the grid to use for this matrix
 
-% Version 2.3 (Sat Sep  6 16:27:02 EDT 2014)
+% Version 2.4.0 (Wed Nov 19 10:59:51 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
-% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
+% Report bugs/request features at https://github.com/eigtool/eigtool/issues
 
 %% This relation determined by experiment...
 %% 300/x^(5/6) gives approx the number of points to use. Then use max 100, min 15.

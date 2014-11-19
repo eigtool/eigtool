@@ -5,11 +5,11 @@ function switch_print(fig,ps_data)
 % Function to create a figure without any of the GUI controls
 % for printing the current pseudospectra
 
-% Version 2.3 (Sat Sep  6 16:27:03 EDT 2014)
+% Version 2.4.0 (Wed Nov 19 10:59:51 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
-% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
+% Report bugs/request features at https://github.com/eigtool/eigtool/issues
 
     if isfield(ps_data,'print_line_thickness'),
        line_thickness = ps_data.print_line_thickness;

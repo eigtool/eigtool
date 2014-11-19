@@ -5,11 +5,11 @@ function ps_data = switch_which(fig,cax,this_ver,ps_data,set_only)
 % Function called when the 'Which' menu is
 % clicked
 
-% Version 2.3 (Sat Sep  6 16:27:03 EDT 2014)
+% Version 2.4.0 (Wed Nov 19 10:59:51 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
-% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
+% Report bugs/request features at https://github.com/eigtool/eigtool/issues
 
 % Which ones are they?
     which_hdl = findobj(fig,'Tag','Which');

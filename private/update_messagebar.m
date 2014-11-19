@@ -14,11 +14,11 @@ function ps_data = update_messagebar(fig,ps_data,new_message,no_drawnow)
 % 
 % ps_data     The changed EIGTOOL data
 
-% Version 2.3 (Sat Sep  6 16:27:03 EDT 2014)
+% Version 2.4.0 (Wed Nov 19 10:59:51 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
-% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
+% Report bugs/request features at https://github.com/eigtool/eigtool/issues
 
 % Use the previous message if requested
     if strcmp(new_message,'prev'),

@@ -4,11 +4,11 @@ function ps_data = switch_origplot(fig,cax,this_ver,ps_data,ax_only)
 %
 % Function called when using a new matrix
 
-% Version 2.3 (Sat Sep  6 16:27:03 EDT 2014)
+% Version 2.4.0 (Wed Nov 19 10:59:51 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
-% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
+% Report bugs/request features at https://github.com/eigtool/eigtool/issues
 
 %% Added a fifth argument (ax_only) in cases where we just want to set the axes.
       if nargin<5, ax_only = 0; end

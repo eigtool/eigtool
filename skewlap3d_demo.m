@@ -9,11 +9,11 @@ function A = skewlap3d_demo(N)
 %   pattern.  A matrix like this might arise in the discretization of a
 %   convection-diffusion problem.
 
-% Version 2.3 (Sat Sep  6 16:27:02 EDT 2014)
+% Version 2.4.0 (Wed Nov 19 10:59:50 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
-% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
+% Report bugs/request features at https://github.com/eigtool/eigtool/issues
 
   I = speye(N-1);
   D = N^2*toeplitz([-2 1.5 zeros(1,N-3)],[-2 .5 zeros(1,N-3)]);

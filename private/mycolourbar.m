@@ -10,11 +10,11 @@ function mycolourbar(cbarfig, ps_epslev,con,colour)
 % con         The output of the contour command
 % colour      Are the contours plotted in colour (1) or b/w (0)?
 
-% Version 2.3 (Sat Sep  6 16:27:02 EDT 2014)
+% Version 2.4.0 (Wed Nov 19 10:59:51 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
-% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
+% Report bugs/request features at https://github.com/eigtool/eigtool/issues
 
 %% Get a handle to the Colourbar Axes and make them the default.
 mycb = findobj(cbarfig,'Tag','MyColourBar');
