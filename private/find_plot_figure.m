@@ -11,11 +11,12 @@ function fig = find_plot_figure(guifig,mtype)
 % 
 % fig       The figure number of the pseudomode figure
 
-% Version 2.4.0 (Wed Nov 19 10:59:51 EST 2014)
+% Version 2.4.0 (Wed Nov 19 11:25:03 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
 % Report bugs/request features at https://github.com/eigtool/eigtool/issues
+% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
 
 % The tag used to identify pseudmode plots
   pmtag = ['PseudomodeFig_',num2str(guifig),'_',mtype];
@@ -27,7 +28,8 @@ function fig = find_plot_figure(guifig,mtype)
   fig = -1;
   for i=1:length(figs),
     if strcmp(get(figs(i),'Tag'),pmtag),
-      fig = figs(i); 
+      fig = figs(i);
+      if ~verLessThan('matlab','8.4'), fig = fig.Number; end        % me
       return;
     end;
   end;
@@ -45,6 +47,7 @@ function fig = find_plot_figure(guifig,mtype)
     fig = figure;
     set(fig,'Tag',pmtag);
     set(fig,'Name',[mtype,title_str,'s associated with EigTool (',num2str(guifig),')']);
+    if ~verLessThan('matlab','8.4'), fig = fig.Number; end        % me
   end;
 
 % Add the menu to allow the figure to be kept

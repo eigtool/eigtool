@@ -88,11 +88,12 @@ function varargout = eigtool(varargin)
 %
 %   See also: EIG, EIGS, PSADEMO, SET_EIGTOOL_PREFS
 
-% Version 2.4.0 (Wed Nov 19 10:59:50 EST 2014)
+% Version 2.4.0 (Wed Nov 19 11:25:03 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
 % Report bugs/request features at https://github.com/eigtool/eigtool/issues
+% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
 %
 % Redistribution and use in source and binary forms, with or without
 % modification, are permitted provided that the following conditions are met:
@@ -115,6 +116,7 @@ function varargout = eigtool(varargin)
 % ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 % (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 % SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 
 % Possible input arg combinations are:
 %   eigtool
@@ -323,6 +325,7 @@ function varargout = eigtool(varargin)
       else
         fig = figure;
       end;
+      if ~verLessThan('matlab','8.4'), fig = fig.Number; end        % me  
       ps_data.print_plot_num = fig;
 %% Want the GUI to assume some other number now
       clear fig;
@@ -331,16 +334,24 @@ function varargout = eigtool(varargin)
 
 %% Start up the GUI (default to a new figure)
   if ~exist('fig','var'), fig = eigtoolgui(1);
+      if ~verLessThan('matlab','8.4'), fig = fig.Number; end        % me  
+
+
   else % But if a figure number is provided in the options
     if isnumeric(fig) & length(fig)==1 & fig>=1 & fig==floor(fig) & isreal(fig),
 % Get the handle to the figure and check that the Tag field
 % looks like it belongs to the GUI
       fig = figure(fig);
+      if ~verLessThan('matlab','8.4'), fig = fig.Number; end        % me
       if ~strcmp('EigTOOL',get(fig,'Tag')) | isempty(findobj(fig,'Tag','MainAxes')),
         clf;
         fig = eigtoolgui(1,-fig);
+        if ~verLessThan('matlab','8.4'), fig = fig.Number; end        % me
       end;
-    else fig = eigtoolgui(1); end;
+    else 
+      fig = eigtoolgui(1); 
+      if ~verLessThan('matlab','8.4'), fig = fig.Number; end        % me
+    end
   end;
 
 %% Set up the array for pausing computation

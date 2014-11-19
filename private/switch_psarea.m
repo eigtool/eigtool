@@ -5,7 +5,7 @@ function ps_data = switch_psarea(fig,cax,this_ver,ps_data)
 % Function called when a box is dragged (or a button clicked)
 % in the pseudospectra axes
 
-% Version 2.4.0 (Wed Nov 19 10:59:51 EST 2014)
+% Version 2.4.0 (Wed Nov 19 11:25:04 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool

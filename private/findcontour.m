@@ -8,7 +8,7 @@ function c = findcontour(cdat)
 %
 % c           a vector of the levels plotted
 
-% Version 2.4.0 (Wed Nov 19 10:59:51 EST 2014)
+% Version 2.4.0 (Wed Nov 19 11:25:03 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool

@@ -11,11 +11,12 @@ function eigtool_switch_fn(the_function, the_fig)
 %
 % See also: EIGTOOL
 
-% Version 2.4.0 (Wed Nov 19 10:59:50 EST 2014)
+% Version 2.4.0 (Wed Nov 19 11:25:03 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
 % Report bugs/request features at https://github.com/eigtool/eigtool/issues
+% Please report bugs and request features at https://github.com/eigtool/eigtool/issues
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Entries of datastructure ps_data
@@ -71,6 +72,8 @@ if ~isempty(gcbf) & nargin < 2,
 else
   fig = the_fig;
 end;
+if ~verLessThan('matlab','8.4'), fig = fig.Number; end        % me
+
 
 %% Make sure that these global variables still exist (they might
 %% have been cleared by a user typing 'clear all'

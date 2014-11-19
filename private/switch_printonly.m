@@ -5,7 +5,7 @@ function ps_data = switch_printonly(fig,cax,ps_data)
 % Function to save the pseudospectra data to a file for
 % quick plot recreation (no recomputation needed)
 
-% Version 2.4.0 (Wed Nov 19 10:59:51 EST 2014)
+% Version 2.4.0 (Wed Nov 19 11:25:04 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool
