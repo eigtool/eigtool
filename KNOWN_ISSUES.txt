@@ -1,1 +1,4 @@
+19 November 2014:  The ARPACK/eigs function has not yet been tested (and might well break) for matrices
+                   that are defined via a matrix-vector product operation, on recent releases of MATLAB.
+19 November 2014:  Version 2.4.1 fixes the main eigs/ARPACK issue
 19 November 2014:  Version 2.4.0 does not properly interface with eigs/ARPACK on recent MATLAB releases.

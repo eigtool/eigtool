@@ -14,7 +14,7 @@ function [y, num_mirror] = shift_axes(ax,npts)
 %                 positive: calculate top half, mirror bottom half
 %                 negative: calculate bottom half, mirror top half
 
-% Version 2.4.0 (Wed Nov 19 11:25:03 EST 2014)
+% Version 2.4.1 (Wed Nov 19 21:54:21 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool

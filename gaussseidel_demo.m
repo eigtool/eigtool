@@ -47,7 +47,7 @@ function G = gaussseidel_demo(input_args)
 %        and G. A. Watson, eds., Numerical Analysis 1991, Longman Scientific
 %        and Technical, Harlow, Essex, UK, 234-266, 1992.
 
-% Version 2.4.0 (Wed Nov 19 11:25:03 EST 2014)
+% Version 2.4.1 (Wed Nov 19 21:54:20 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool

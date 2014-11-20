@@ -16,7 +16,7 @@ function R = sparserandom_demo(N)
 %   [1]: T. G. Wright and L. N. Trefethen, "Computation of pseudospectra
 %        using ARPACK and eigs", SIAM J. Sci. Comp., 23(2), 2001, 591-605
 
-% Version 2.4.0 (Wed Nov 19 11:25:03 EST 2014)
+% Version 2.4.1 (Wed Nov 19 21:54:20 EST 2014)
 % Copyright (c) 2002-2014, The Chancellor, Masters and Scholars
 % of the University of Oxford, and the EigTool Developers. All rights reserved.
 % EigTool is maintained on GitHub:  https://github.com/eigtool

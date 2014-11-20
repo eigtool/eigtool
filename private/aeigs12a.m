@@ -245,9 +245,15 @@ while (ido ~= 99)
     t0 = cputime; % start timing ARPACK calls **aupd
     
     if isrealprob
-        arpackc( aupdfun, ido, ...
-         bmat, intconvert(n), whch, nev, tol, resid, ncv, ...
-            v, ldv, iparam, ipntr, workd, workl, lworkl, info );
+        if verLessThan('matlab','8.2')                                         % mpe
+           arpackc( aupdfun, ido, ...
+            bmat, intconvert(n), whch, nev, tol, resid, ncv, ...
+               v, ldv, iparam, ipntr, workd, workl, lworkl, info );
+        else                                                                   % mpe
+           [ido,info] = arpackc( aupdfun, ido, ...                             % mpe
+            bmat, intconvert(n), whch, nev, tol, resid, ncv, ...               % mpe
+               v, ldv, iparam, ipntr, workd, workl, lworkl, info );            % mpe
+        end                                                                    % mpe
     else
         % The FORTRAN ARPACK routine expects the complex input zworkd to have
         % real and imaginary parts interleaved, but the OP about to be
@@ -255,9 +261,15 @@ while (ido ~= 99)
         % separate real and imaginary parts. Thus we need both.
         zworkd(1:2:end-1) = real(workd);
         zworkd(2:2:end) = imag(workd);
-        arpackc( aupdfun, ido, ...
-         bmat, intconvert(n), whch, nev, tol, resid, ncv, ...
+        if verLessThan('matlab','8.2')                                         % mpe
+           arpackc( aupdfun, ido, ...
+            bmat, intconvert(n), whch, nev, tol, resid, ncv, ...
             zv, ldv, iparam, ipntr, zworkd, workl, lworkl, rwork, info );
+        else                                                                   % mpe
+           [ido,info] = arpackc( aupdfun, ido, ...                             % mpe
+            bmat, intconvert(n), whch, nev, tol, resid, ncv, ...               % mpe
+            zv, ldv, iparam, ipntr, zworkd, workl, lworkl, rwork, info );      % mpe
+        end                                                                    % mpe
         workd = reshape(complex(zworkd(1:2:end-1),zworkd(2:2:end)),[n,3]);
     end
     
@@ -317,8 +329,8 @@ while (ido ~= 99)
       isfield(opts,'eigtool');    % apparently vacuous line activates "opts": mpe
       fig = []; return_now = []; cur_fig = []; 
       dispvec = []; the_ews = []; the_shifts = [];
-      prevH = []; H = []; ih = []; thev = [];      % for extract_mtx.m
-      w = []; h = []; mtxprod = []; beta = [];     % for extract_mtx.m
+      prevH = []; H = []; ih = []; thev = []; i = [];  % for extract_mtx.m
+      w = []; h = []; mtxprod = []; beta = [];         % for extract_mtx.m
       prevthev = []; ps_data = []; cax = []; 
       mnu_itm_h = []; mnu_itm_h2 = []; mnu_itm_h3 = []; 
       cur_state = []; ax = []; cur_state2 = []; cur_state3 = []; 
@@ -340,6 +352,7 @@ while (ido ~= 99)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
 end % while (ido ~= 99)
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -364,10 +377,18 @@ end
 
 if isrealprob
     if issymA
-        arpackc( eupdfun, rvec, 'A', select, ...
-            d, v, ldv, sigma, ...
-         bmat, intconvert(n), whch, nev, tol, resid, ncv, ...
-            v, ldv, iparam, ipntr, workd, workl, lworkl, info );
+        if verLessThan('matlab','8.2')                                         % mpe
+           arpackc( eupdfun, rvec, 'A', select, ...
+               d, v, ldv, sigma, ...
+            bmat, intconvert(n), whch, nev, tol, resid, ncv, ...
+               v, ldv, iparam, ipntr, workd, workl, lworkl, info );
+        else                                                                   % mpe
+           [d,info] = arpackc( eupdfun, rvec, 'A', select, ...                 % mpe
+               v, ldv, sigma, ...                                              % mpe replace sigma 
+            bmat, intconvert(n), whch, nev, tol, resid, ncv, ...               % mpe with real(sigma),imag(sigma),workev?
+               v, ldv, iparam, ipntr, workd, workl, lworkl, info );            % mpe
+        
+        end                                                                    % mpe
         if strcmp(whch,'LM') || strcmp(whch,'LA')
             d = flipud(d);
             if (rvec == 1)
@@ -380,11 +401,20 @@ if isrealprob
     else
         % If sigma is complex, isrealprob=true and we use [c,z]neupd.
         % So use sigmar=sigma and sigmai=0 here in dneupd.
-        arpackc( eupdfun, rvec, 'A', select, ...
-            d, di, v, ldv, sigma, 0, workev, ...
-         bmat, intconvert(n), whch, nev, tol, resid, ncv, ...
-            v, ldv, iparam, ipntr, workd, workl, lworkl, info );
-        d = complex(d,di);
+        
+        if verLessThan('matlab','8.2')                                         % mpe
+           arpackc( eupdfun, rvec, 'A', select, ...
+               d, di, v, ldv, sigma, 0, workev, ...
+            bmat, intconvert(n), whch, nev, tol, resid, ncv, ...
+               v, ldv, iparam, ipntr, workd, workl, lworkl, info );
+            d = complex(d,di);
+        else                                                                   % mpe
+           [d,info] = arpackc( eupdfun, rvec, 'A', select, ...                 % mpe
+               v, ldv, sigma, 0, workev, ...                                   % mpe
+            bmat, intconvert(n), whch, nev, tol, resid, ncv, ...               % mpe
+               v, ldv, iparam, ipntr, workd, workl, lworkl, info );            % mpe
+        end                                                                    % mpe
+        
         if rvec
             d(k+1) = [];
         else
@@ -399,16 +429,24 @@ if isrealprob
     end
 else
     zsigma = [real(sigma); imag(sigma)];
-    arpackc( eupdfun, rvec, 'A', select, ...
-        zd, zv, ldv, zsigma, workev, ...
-      bmat, intconvert(n), whch, nev, tol, resid, ncv, zv, ...
-        ldv, iparam, ipntr, zworkd, workl, lworkl, ...
-        rwork, info );
-    if issymA
-        d = zd(1:2:end-1);
-    else
-        d = complex(zd(1:2:end-1),zd(2:2:end));
-    end
+    if verLessThan('matlab','8.2')                                             % mpe
+        arpackc( eupdfun, rvec, 'A', select, ...
+            zd, zv, ldv, zsigma, workev, ...
+          bmat, intconvert(n), whch, nev, tol, resid, ncv, zv, ...
+            ldv, iparam, ipntr, zworkd, workl, lworkl, ...
+            rwork, info );
+        if issymA
+            d = zd(1:2:end-1);
+        else
+            d = complex(zd(1:2:end-1),zd(2:2:end));
+        end
+    else                                                                       % mpe
+        [d,info] = arpackc( eupdfun, rvec, 'A', select, ...                    % mpe
+            zv, ldv, zsigma, workev, ...                                       % mpe
+          bmat, intconvert(n), whch, nev, tol, resid, ncv, zv, ...             % mpe
+            ldv, iparam, ipntr, zworkd, workl, lworkl, ...                     % mpe
+            rwork, info );                                                     % mpe
+    end                                                                        % mpe
     v = reshape(complex(zv(1:2:end-1),zv(2:2:end)),[n p]);
 end
 
