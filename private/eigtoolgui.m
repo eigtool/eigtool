@@ -43,7 +43,7 @@ elseif fig_no>0, h0 = figure(fig_no,'visible','off');
 % fig_no is negative if the figure already exists
 % The correct number is then -fig_no
 else
-  h0 = -fig_no;
+  h0 = figure(-fig_no);
 end; 
 
 set(h0,'Units','points');
