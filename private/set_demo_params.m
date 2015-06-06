@@ -170,7 +170,7 @@ switch the_matrix
     routine = 'chebspec';
      if ~isnumeric(mtx_size),
       N = 20;
-      opts.ax = [-10 60 -40 40];
+      opts.ax = [-60 10 -40 40];
     end;
     if ~isnumeric(grid_size),
       if strcmp(grid_size,'F'),

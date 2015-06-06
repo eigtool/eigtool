@@ -25,4 +25,4 @@ function C = chebspec_demo(N)
 % Report bugs/request features at https://github.com/eigtool/eigtool/issues
 
   C = gallery('chebspec',N);
-  C = C(1:end-1,1:end-1);
+  C = C(2:end,2:end);
